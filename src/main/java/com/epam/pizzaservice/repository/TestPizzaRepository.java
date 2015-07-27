@@ -15,6 +15,12 @@ public class TestPizzaRepository implements PizzaRepository {
 		return null;
 	}
 	
+	public void setListOfPizza(List<Pizza> listOfPizza) {
+		this.listOfPizza = listOfPizza;
+	}
+
+
+
 	public void init(){
 		listOfPizza = new ArrayList<Pizza>();
 		listOfPizza.add(new Pizza(1, "VEGETERIAN", 55.30, PizzaType.VEGETERIAN));
