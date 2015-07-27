@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.epam.pizzaservice.domain.Pizza;
 import com.epam.pizzaservice.domain.PizzaType;
+import com.epam.pizzaservice.infostructure.Benchmark;
 
 public class TestPizzaRepository implements PizzaRepository {
 	private List<Pizza> listOfPizza;
@@ -18,8 +19,6 @@ public class TestPizzaRepository implements PizzaRepository {
 	public void setListOfPizza(List<Pizza> listOfPizza) {
 		this.listOfPizza = listOfPizza;
 	}
-
-
 
 	public void init(){
 		listOfPizza = new ArrayList<Pizza>();

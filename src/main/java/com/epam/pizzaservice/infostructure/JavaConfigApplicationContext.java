@@ -1,7 +1,10 @@
 package com.epam.pizzaservice.infostructure;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -101,7 +104,45 @@ public class JavaConfigApplicationContext implements ApplicationContext {
 			method.invoke(obj);
 		}
 		
-		public void createProxy(){}
+		public void createProxy(){
+			ProxyForBenchmarkAnnotation proxyForBenchmarkAnnotation = new ProxyForBenchmarkAnnotation();
+			obj = proxyForBenchmarkAnnotation.checkAndCreateProxyObjForBenckmark(obj);
+		}
+
+		/*private Object checkAndCreateProxyObjForBenckmark(Object object) {
+			Class<?> clazz = object.getClass();
+
+			for (Method m : clazz.getMethods()){
+				if (m.isAnnotationPresent(Benchmark.class)) object = cteateProxyObj(object);
+			}
+			return object;
+		}
+
+		private Object cteateProxyObj( final Object o){
+			final Class<?> type = o.getClass();
+			return Proxy.newProxyInstance(type.getClassLoader(), type.getInterfaces(), new InvocationHandler() {
+				@Override
+				public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+					Object retVal;
+					if (!type.getMethod(method.getName(), method.getParameterTypes()).isAnnotationPresent(Benchmark.class)) {
+						retVal = method.invoke(o, args);
+					}
+					else {
+						System.out.println("Benchmark start: " + method.getName());
+						long startTime = System.nanoTime();
+
+						retVal = method.invoke(o, args);
+
+						long result = System.nanoTime() - startTime;
+						System.out.println(result);
+						System.out.println("Benchmark finish: " + method.getName());
+					}
+
+					return retVal;
+				}
+			});
+
+		}*/
 		
 		public Object getObject(){
 			return obj;

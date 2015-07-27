@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.epam.pizzaservice.domain.Order;
+import com.epam.pizzaservice.infostructure.Benchmark;
 
 public class TestOrderRepository implements OrderRepository {
 	private static List<Order> staticListOfOrders;
@@ -16,8 +17,9 @@ public class TestOrderRepository implements OrderRepository {
 	 * @see com.epam.pizzaservice.repository.OrderRepository#saveOrder(com.epam.pizzaservice.domain.Order)
 	 */
 	@Override
+	@Benchmark
 	public void saveOrder(Order newOrder) {
-		newOrder.setId(staticListOfOrders.size()+1);
+		//newOrder.setId(staticListOfOrders.size()+1);
 		staticListOfOrders.add(newOrder);		
 	}
 }

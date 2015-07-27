@@ -9,21 +9,25 @@ import com.epam.pizzaservice.service.OrderService;
 
 public class SpringPizzaApp {
 	public static void main(String[] args) throws Exception {
-        ConfigurableApplicationContext appContext = new ClassPathXmlApplicationContext("appContext.xml");
+        ConfigurableApplicationContext repositoryContext = new ClassPathXmlApplicationContext("repositoryConfig.xml");
+        ConfigurableApplicationContext appContext = new ClassPathXmlApplicationContext(new String[]{"appContext.xml"}, repositoryContext);
         PizzaRepository pizzaRepository = (PizzaRepository)appContext.getBean("pizzaRepository");
         System.out.println(pizzaRepository);
-        
+
         String[] beans = appContext.getBeanDefinitionNames();
         for (String string : beans) {
-			System.out.println(string);
-		}
-        
+            System.out.println(string);
+        }
+
         OrderService orderService = (OrderService)appContext.getBean("orderService");
         Order order = orderService.placeNewOrder(null, 1, 2, 3);
-        
         System.out.println(order);
-        
+
+        System.out.println(appContext.getBean("order"));
+        System.out.println(appContext.getBean("order"));
+
         appContext.close();
+        repositoryContext.close();
     }
 
 }
