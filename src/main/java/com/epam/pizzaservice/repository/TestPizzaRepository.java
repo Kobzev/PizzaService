@@ -11,6 +11,7 @@ public class TestPizzaRepository implements PizzaRepository {
 	private List<Pizza> listOfPizza;
 	
 	@Override
+	@Benchmark
 	public Pizza getPizzaByID(Integer id) {
 		for (Pizza pizza : listOfPizza) if(pizza.getId().equals(id)) return pizza;
 		return null;

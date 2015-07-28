@@ -1,10 +1,7 @@
 package com.epam.pizzaservice.infostructure;
 
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
-import java.lang.reflect.Proxy;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,8 +23,8 @@ public class JavaConfigApplicationContext implements ApplicationContext {
 		
 		BeanBuilder beanBuilder = new BeanBuilder(beanName);
 		beanBuilder.createObject();
-		beanBuilder.createProxy();
 		beanBuilder.callInitMethod();
+		beanBuilder.createProxy();		
 		
 		return beanBuilder.getObject();
 		

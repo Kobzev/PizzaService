@@ -10,9 +10,6 @@ import com.epam.pizzaservice.domain.Pizza;
 import com.epam.pizzaservice.infostructure.Benchmark;
 import com.epam.pizzaservice.repository.OrderRepository;
 import com.epam.pizzaservice.repository.PizzaRepository;
-import org.springframework.beans.BeansException;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
 
 public class SimpleOrderService implements OrderService {
 		//, ApplicationContextAware {

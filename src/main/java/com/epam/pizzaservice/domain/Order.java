@@ -1,8 +1,6 @@
 package com.epam.pizzaservice.domain;
 
-import java.util.Date;
 import java.util.List;
-import java.util.Random;
 
 public class Order {
 	static int count;

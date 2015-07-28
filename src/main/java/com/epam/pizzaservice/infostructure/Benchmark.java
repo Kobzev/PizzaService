@@ -1,6 +1,5 @@
 package com.epam.pizzaservice.infostructure;
 
-import java.lang.annotation.Annotation;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
