@@ -19,7 +19,9 @@ public class SpringPizzaApp {
             System.out.println(string);
         }
 
-        OrderService orderService = (OrderService)appContext.getBean("orderService");
+        Object service = appContext.getBean("orderService");
+        
+        OrderService orderService = (OrderService)service;
         Order order = orderService.placeNewOrder(null, 1, 2, 3);
         System.out.println(order);
 

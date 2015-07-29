@@ -3,6 +3,8 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	  <!-- <bean class="com.epam.pizzaservice.infostructure.CustomAnnotationBeanPostProcessor" />  -->
+
        <bean name = "pizzaRepository" class="com.epam.pizzaservice.repository.TestPizzaRepository">
               <property name="listOfPizza">
                      <list>
@@ -27,6 +29,9 @@
                      </list>
               </property>
        </bean>
+       
        <bean name = "orderRepository" class="com.epam.pizzaservice.repository.TestOrderRepository" />
+       
+       
 
 </beans>
