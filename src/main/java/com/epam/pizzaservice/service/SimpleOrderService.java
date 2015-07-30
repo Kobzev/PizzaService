@@ -49,6 +49,8 @@ public class SimpleOrderService implements OrderService {
 		this.orderRepository = orderRepository;
 		this.pizzaRepository = pizzaRepository;
 	}
+	
+	public SimpleOrderService(){}
 
 	public void destroy(){
 		System.out.println("Destroy simple order service");

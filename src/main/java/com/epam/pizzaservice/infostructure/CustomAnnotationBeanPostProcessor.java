@@ -7,14 +7,8 @@ public class CustomAnnotationBeanPostProcessor implements BeanPostProcessor{
 
 	@Override
 	public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-		if (bean instanceof org.springframework.cglib.proxy.Factory) {
-			ProxyForBenchmarkAnnotationCGLIB proxyForBenchmarkAnnotationCGLIB = new ProxyForBenchmarkAnnotationCGLIB();
-			return proxyForBenchmarkAnnotationCGLIB.checkAndCreateProxyObjForBenckmark(bean);
-		}
-		
-		ProxyForBenchmarkAnnotation proxyForBenchmarkAnnotation = new ProxyForBenchmarkAnnotation();
-		return proxyForBenchmarkAnnotation.checkAndCreateProxyObjForBenckmark(bean);
-		
+		ProxyForBenchmarkAnnotationCGLIB proxyForBenchmarkAnnotationCGLIB = new ProxyForBenchmarkAnnotationCGLIB();
+		return proxyForBenchmarkAnnotationCGLIB.checkAndCreateProxyObjForBenckmark(bean);		
 	}
 
 	@Override
