@@ -49,44 +49,4 @@ public class ProxyForBenchmarkAnnotationCGLIB {
         Object proxy = enhancer.create();         
         return proxy;    	
     }
-
-    /*private Object cteateProxyObj( final Object o){
-        final Class<?> type = o.getClass();
-        Class<?>[] interfaces = type.getInterfaces();
-        
-        //crutch
-		if (o instanceof org.springframework.cglib.proxy.Factory) {
-			Set<Class<?>> interfacesSet = new HashSet<>();
-
-			for (Method m : o.getClass().getMethods()) {
-				interfacesSet.addAll(Arrays.asList(m.getDeclaringClass().getInterfaces()));
-			}
-			interfacesSet.addAll(Arrays.asList(interfaces));
-			interfaces = interfacesSet.toArray(new Class<?>[0]);
-		}
-        //crutch
-        
-        
-        return Proxy.newProxyInstance(type.getClassLoader(), interfaces, new InvocationHandler() {
-            @Override
-            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                Object retVal;
-                if (!type.getMethod(method.getName(), method.getParameterTypes()).isAnnotationPresent(Benchmark.class)) {
-                    retVal = method.invoke(o, args);
-                } else {
-                    System.out.println("Benchmark start: " + method.getName());
-                    long startTime = System.nanoTime();
-
-                    retVal = method.invoke(o, args);
-
-                    long result = System.nanoTime() - startTime;
-                    System.out.println(result);
-                    System.out.println("Benchmark finish: " + method.getName());
-                }
-
-                return retVal;
-            }
-        });
-
-    }*/
 }

@@ -8,7 +8,11 @@ public class CustomAnnotationBeanPostProcessor implements BeanPostProcessor{
 	@Override
 	public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
 		ProxyForBenchmarkAnnotationCGLIB proxyForBenchmarkAnnotationCGLIB = new ProxyForBenchmarkAnnotationCGLIB();
-		return proxyForBenchmarkAnnotationCGLIB.checkAndCreateProxyObjForBenckmark(bean);		
+		return proxyForBenchmarkAnnotationCGLIB.checkAndCreateProxyObjForBenckmark(bean);
+		
+		//ProxyForBenchmarkAnnotation proxyForBenchmarkAnnotation = new ProxyForBenchmarkAnnotation();
+		//return proxyForBenchmarkAnnotation.checkAndCreateProxyObjForBenckmark(bean);
+		//return bean;
 	}
 
 	@Override

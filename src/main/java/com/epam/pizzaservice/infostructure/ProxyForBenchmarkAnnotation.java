@@ -3,6 +3,9 @@ package com.epam.pizzaservice.infostructure;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Konstiantyn on 7/27/2015.
@@ -19,7 +22,13 @@ public class ProxyForBenchmarkAnnotation {
 
     private Object cteateProxyObj( final Object o){
         final Class<?> type = o.getClass();
-        return Proxy.newProxyInstance(type.getClassLoader(), type.getInterfaces(), new InvocationHandler() {
+        
+        Set<Class<?>> interfaces = new HashSet<>();
+        interfaces.addAll(Arrays.asList(type.getInterfaces()));
+        interfaces.addAll(Arrays.asList(type.getSuperclass().getInterfaces()));
+
+        
+        return Proxy.newProxyInstance(type.getClassLoader(), interfaces.toArray(new Class<?>[0]), new InvocationHandler() {
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                 Object retVal;
