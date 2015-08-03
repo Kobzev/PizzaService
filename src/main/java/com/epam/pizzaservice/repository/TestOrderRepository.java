@@ -3,9 +3,12 @@ package com.epam.pizzaservice.repository;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.epam.pizzaservice.domain.Order;
 import com.epam.pizzaservice.infostructure.Benchmark;
 
+@Repository
 public class TestOrderRepository implements OrderRepository {
 	private static List<Order> staticListOfOrders;
 
@@ -13,9 +16,6 @@ public class TestOrderRepository implements OrderRepository {
 		staticListOfOrders = new ArrayList<Order>();
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.epam.pizzaservice.repository.OrderRepository#saveOrder(com.epam.pizzaservice.domain.Order)
-	 */
 	@Override
 	@Benchmark
 	public void saveOrder(Order newOrder) {

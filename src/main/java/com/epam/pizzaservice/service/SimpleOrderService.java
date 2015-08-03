@@ -3,6 +3,10 @@ package com.epam.pizzaservice.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Lookup;
+import org.springframework.beans.factory.annotation.Required;
+import org.springframework.stereotype.Service;
 
 import com.epam.pizzaservice.domain.Customer;
 import com.epam.pizzaservice.domain.Order;
@@ -11,6 +15,7 @@ import com.epam.pizzaservice.infostructure.Benchmark;
 import com.epam.pizzaservice.repository.OrderRepository;
 import com.epam.pizzaservice.repository.PizzaRepository;
 
+@Service
 public class SimpleOrderService implements OrderService {
 		//, ApplicationContextAware {
 	//private ObjectFactory objectFactory = ObjectFactory.getInstance();
@@ -35,6 +40,7 @@ public class SimpleOrderService implements OrderService {
         return newOrder;
     }
 
+	@Lookup(value="order")
 	protected Order getNewOrder() {
 		//Order order = (Order)appContext.getBean("order");
 		return null;
@@ -45,6 +51,7 @@ public class SimpleOrderService implements OrderService {
 		pizzaRepository = (PizzaRepository)objectFactory.createObject("pizzaRepository");
 	}*/
 
+	@Autowired
 	public SimpleOrderService(OrderRepository orderRepository, PizzaRepository pizzaRepository) {
 		this.orderRepository = orderRepository;
 		this.pizzaRepository = pizzaRepository;
@@ -56,6 +63,12 @@ public class SimpleOrderService implements OrderService {
 		System.out.println("Destroy simple order service");
 	}
 
+	@Autowired
+	@Required
+	public void setPizzaRepository(PizzaRepository pizzaRepository){
+		this.pizzaRepository = pizzaRepository;
+		System.out.println("pizza test method");
+	}
 
 	//@Override
 	//public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {

@@ -15,11 +15,13 @@ public class SpringPizzaApp {
         System.out.println(pizzaRepository);
 
         String[] beans = appContext.getBeanDefinitionNames();
+        System.out.println("context start");
         for (String string : beans) {
             System.out.println(string);
         }
+        System.out.println("context finish");
 
-        Object service = appContext.getBean("orderService");
+        Object service = appContext.getBean(OrderService.class);
         
         OrderService orderService = (OrderService)service;
         Order order = orderService.placeNewOrder(null, 1, 2, 3);
