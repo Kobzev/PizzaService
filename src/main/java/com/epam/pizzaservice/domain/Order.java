@@ -1,28 +1,22 @@
 package com.epam.pizzaservice.domain;
 
 import java.util.List;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import java.util.Map;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Entity
 @Component(value = "order")
 @Scope(value="prototype")
 public class Order {
 	static int count;
 	
-	@Id
 	private Integer id;
 	private String name;
 	private List<Pizza> list;
 	private Customer customer;
 	
-	@OneToMany(mappedBy = "order")
-	private List<Pizza_Order> pizzaOrder;
+	Map<Pizza, Integer> pizzaMap;
 	
 	public Order() {
 		id = count++;
@@ -64,6 +58,14 @@ public class Order {
 		this.list = list;
 	}
 	
+	public Map<Pizza, Integer> getPizzaMap() {
+		return pizzaMap;
+	}
+
+	public void setPizzaMap(Map<Pizza, Integer> pizzaMap) {
+		this.pizzaMap = pizzaMap;
+	}
+
 	public void destroy(){
 		System.out.println("destroy");
 	}

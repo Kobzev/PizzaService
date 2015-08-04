@@ -1,10 +1,7 @@
 package com.epam.pizzaservice.domain;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Pizza {
@@ -13,9 +10,6 @@ public class Pizza {
 	private String name;
 	private Double price;
 	private PizzaType type;
-	
-	@OneToMany(mappedBy = "pizza")
-	private List<Pizza_Order> pizzaOrder;
 	
 	public Integer getId() {
 		return id;

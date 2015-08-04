@@ -81,5 +81,96 @@ public class TotalOrderCostCalculatorTest {
 		totalOrderCostCalculator.calculateTotalOrderPrise(null);
 		
 	}
+	
+	@Test
+	public void testCalculateTotalOrderPrice_ThreeDifferentPizza(){
+		Map<Pizza, Integer> pizzas = new HashMap<>();
+		pizzas.put(new Pizza(1, "Some name", 45.60, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(2, "Some name", 55.60, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(3, "Some name", 35.60, PizzaType.MEAT), 1);
+		double expectedPrice = 136.80;
+		
+		TotalOrderCostCalculator totalOrderCostCalculator = new TotalOrderCostCalculator();
+		double price = totalOrderCostCalculator.calculateTotalOrderPrise(pizzas);
+		
+		assertEquals(expectedPrice, price, DELTA);
+	}
+	
+	@Test
+	public void testCalculateTotalOrderPrice_FourDifferentPizza(){
+		Map<Pizza, Integer> pizzas = new HashMap<>();
+		pizzas.put(new Pizza(1, "Some name", 45.60, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(2, "Some name", 55.60, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(3, "Some name", 35.60, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(4, "Some name", 45.60, PizzaType.MEAT), 1);
+		double expectedPrice = 182.40;
+		
+		TotalOrderCostCalculator totalOrderCostCalculator = new TotalOrderCostCalculator();
+		double price = totalOrderCostCalculator.calculateTotalOrderPrise(pizzas);
+		
+		assertEquals(expectedPrice, price, DELTA);
+	}
+	
+	@Test
+	public void testCalculateTotalOrderPrice_FiveDifferentPizza(){
+		Map<Pizza, Integer> pizzas = new HashMap<>();
+		pizzas.put(new Pizza(1, "Some name", 30.00, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(2, "Some name", 60.00, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(3, "Some name", 30.00, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(4, "Some name", 45.00, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(4, "Some name", 45.00, PizzaType.MEAT), 1);
+		//60 - max price
+		//60 - 30% = 42 
+		// 30+30+45+45+42 = 192
+		double expectedPrice = 192.00;
+		
+		TotalOrderCostCalculator totalOrderCostCalculator = new TotalOrderCostCalculator();
+		double price = totalOrderCostCalculator.calculateTotalOrderPrise(pizzas);
+		
+		assertEquals(expectedPrice, price, DELTA);
+	}
+	
+	@Test
+	public void testCalculateTotalOrderPrice_FiveDifferentPizzaTwoMaxPrice(){
+		Map<Pizza, Integer> pizzas = new HashMap<>();
+		pizzas.put(new Pizza(1, "Some name", 30.00, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(2, "Some name", 60.00, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(3, "Some name", 60.00, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(4, "Some name", 45.00, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(4, "Some name", 45.00, PizzaType.MEAT), 1);
+		//60 - max price
+		//60 - 30% = 42 
+		// 30+60+45+45+42 = 222
+		double expectedPrice = 222.00;
+		
+		TotalOrderCostCalculator totalOrderCostCalculator = new TotalOrderCostCalculator();
+		double price = totalOrderCostCalculator.calculateTotalOrderPrise(pizzas);
+		
+		assertEquals(expectedPrice, price, DELTA);
+	}
+	
+	@Test
+	public void testCountDiscount_normalPercent(){
+		TotalOrderCostCalculator totalOrderCostCalculator = new TotalOrderCostCalculator();
+		double discount = totalOrderCostCalculator.countDiscount(100, 30);
+		double expectedDiscount = 30.00;
+		
+		assertEquals(expectedDiscount, discount, DELTA);
+	}
+	
+	@Test
+	public void testCountDiscount_zeroPercent(){
+		TotalOrderCostCalculator totalOrderCostCalculator = new TotalOrderCostCalculator();
+		double discount = totalOrderCostCalculator.countDiscount(100, 0);
+		double expectedDiscount = 0.00;
+		
+		assertEquals(expectedDiscount, discount, DELTA);
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testCountDiscount_negativePercent(){
+		TotalOrderCostCalculator totalOrderCostCalculator = new TotalOrderCostCalculator();
+		totalOrderCostCalculator.countDiscount(100, -30);
+	}
 
 }

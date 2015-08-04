@@ -3,6 +3,16 @@ package com.epam.pizzaservice.domain;
 public class Customer {
 	private Integer id;
 	private String name;
+	private AccumulativeCard accumulativeCard;
+	
+	public Customer(Integer id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+	
+	public Customer() {
+	}
+	
 	public Integer getId() {
 		return id;
 	}
@@ -16,14 +26,11 @@ public class Customer {
 		this.name = name;
 	}
 	
-	public Customer(Integer id, String name) {
-		this.id = id;
-		this.name = name;
+	public AccumulativeCard getAccumulativeCard() {
+		return accumulativeCard;
 	}
-	
-	public Customer() {
+	public void setAccumulativeCard(AccumulativeCard accumulativeCard) {
+		this.accumulativeCard = accumulativeCard;
 	}
-	
-	
 
 }
