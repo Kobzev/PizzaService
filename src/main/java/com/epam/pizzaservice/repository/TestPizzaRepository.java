@@ -7,10 +7,10 @@ import com.epam.pizzaservice.domain.Pizza;
 import com.epam.pizzaservice.domain.PizzaType;
 import com.epam.pizzaservice.infostructure.Benchmark;
 
-public class TestPizzaRepository implements PizzaRepository {
+public class TestPizzaRepository {//implements PizzaRepository {
 	private List<Pizza> listOfPizza;
 	
-	@Override
+	//@Override
 	@Benchmark
 	public Pizza getPizzaByID(Integer id) {
 		for (Pizza pizza : listOfPizza) if(pizza.getId().equals(id)) return pizza;
@@ -26,6 +26,18 @@ public class TestPizzaRepository implements PizzaRepository {
 		listOfPizza.add(new Pizza(1, "VEGETERIAN", 55.30, PizzaType.VEGETERIAN));
 		listOfPizza.add(new Pizza(2, "SEA", 68.30, PizzaType.SEA));
 		listOfPizza.add(new Pizza(3, "MEAT", 65.30, PizzaType.MEAT));
+	}
+
+	//@Override
+	public List<Pizza> getAllPizzas() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	//@Override
+	public Integer save(Pizza pizza) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

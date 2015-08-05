@@ -10,10 +10,16 @@
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<spring.core>4.1.7.RELEASE</spring.core>
-		<spring.context>4.1.7.RELEASE</spring.context>
-		<persistance.api>1.0.2</persistance.api>
+		<spring.core>4.2.0.RELEASE</spring.core>
+		<spring.context>4.2.0.RELEASE</spring.context>
+		<spring.orm>4.2.0.RELEASE</spring.orm>
+		<spring.tx>4.2.0.RELEASE</spring.tx>
+		<spring.test>2.5</spring.test>
+		<persistance.api>2.1.0</persistance.api>
 		<junit>4.12</junit>
+		<MySQL>5.1.36</MySQL>
+		<commons.dbcp>1.4</commons.dbcp>
+		<hibernate.entitymanager>4.3.10.Final</hibernate.entitymanager>		
 	</properties>
 
 	<dependencies>
@@ -28,8 +34,14 @@
 			<version>${spring.context}</version>
 		</dependency>
 		<dependency>
-			<groupId>javax.persistence</groupId>
-			<artifactId>persistence-api</artifactId>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.test}</version>
+			<scope>test</scope>
+		</dependency>		
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>javax.persistence</artifactId>
 			<version>${persistance.api}</version>
 		</dependency>
 		<dependency>
@@ -38,6 +50,43 @@
 			<version>${junit}</version>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${MySQL}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>${commons.dbcp}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.entitymanager}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.orm}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.tx}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>4.2.0.RELEASE</version>
+		</dependency>
+		
 
 	</dependencies>
 </project>
