@@ -26,10 +26,10 @@ public class SimpleOrderService implements OrderService {
 	
 	@Override
 	@Benchmark
-	public Order placeNewOrder(Customer customer, Integer ... pizzasID) {
+	public Order placeNewOrder(Customer customer, Long ... pizzasID) {
         List<Pizza> pizzas = new ArrayList<Pizza>();
        
-        for(Integer id : pizzasID){
+        for(Long id : pizzasID){
             pizzas.add(pizzaRepository.getPizzaByID(id));  // get Pizza from predifined in-memory list
         }
         Order newOrder = getNewOrder();

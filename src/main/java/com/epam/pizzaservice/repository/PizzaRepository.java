@@ -5,7 +5,7 @@ import java.util.List;
 import com.epam.pizzaservice.domain.Pizza;
 
 public interface PizzaRepository {
-	Pizza getPizzaByID(Integer id);
+	Pizza getPizzaByID(Long id);
 	List<Pizza> getAllPizzas();
-	Integer save(Pizza pizza);
+	Long save(Pizza pizza);
 }

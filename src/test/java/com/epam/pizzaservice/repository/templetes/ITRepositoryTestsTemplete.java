@@ -8,10 +8,10 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 
-//@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:/repositoryConfig.xml")
-//@TransactionConfiguration(transactionManager = "transactionManager", defaultRollback=true)
-//@FixMethodOrder(MethodSorters.JVM)
+@TransactionConfiguration(transactionManager = "transactionManager", defaultRollback=true)
+@FixMethodOrder(MethodSorters.JVM)
 public class ITRepositoryTestsTemplete extends AbstractTransactionalJUnit4SpringContextTests {
 
 }

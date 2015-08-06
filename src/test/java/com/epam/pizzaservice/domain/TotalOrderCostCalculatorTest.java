@@ -22,7 +22,7 @@ public class TotalOrderCostCalculatorTest {
 	@Test(expected = IllegalArgumentException.class)
 	public void testCalculateTotalOrderPrice_ThrowException_BiggestThenTenPizzas(){
 		Map<Pizza, Integer> pizzas = new HashMap<>();
-		pizzas.put(new Pizza(1, "Some name", 10.11, PizzaType.MEAT), 15);
+		pizzas.put(new Pizza(1L, "Some name", 10.11, PizzaType.MEAT), 15);
 		
 		TotalOrderCostCalculator totalOrderCostCalculator = new TotalOrderCostCalculator();
 		totalOrderCostCalculator.calculateTotalOrderPrise(pizzas);
@@ -33,7 +33,7 @@ public class TotalOrderCostCalculatorTest {
 	public void testCalculateTotalOrderPrice_OnePizza(){
 		Map<Pizza, Integer> pizzas = new HashMap<>();
 		double pizzaPrice = 45.60;
-		pizzas.put(new Pizza(1, "Some name", pizzaPrice, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(1L, "Some name", pizzaPrice, PizzaType.MEAT), 1);
 		double expectedPrice = 45.60;
 		
 		TotalOrderCostCalculator totalOrderCostCalculator = new TotalOrderCostCalculator();
@@ -45,8 +45,8 @@ public class TotalOrderCostCalculatorTest {
 	@Test(expected = IllegalArgumentException.class)
 	public void testCalculateTotalOrderPrice_ThrowException_PizzaCountIsNegative(){
 		Map<Pizza, Integer> pizzas = new HashMap<>();
-		pizzas.put(new Pizza(1, "Some name", 10.11, PizzaType.MEAT), 3);
-		pizzas.put(new Pizza(1, "Some name", 10.11, PizzaType.MEAT), -2);
+		pizzas.put(new Pizza(1L, "Some name", 10.11, PizzaType.MEAT), 3);
+		pizzas.put(new Pizza(1L, "Some name", 10.11, PizzaType.MEAT), -2);
 		
 		TotalOrderCostCalculator totalOrderCostCalculator = new TotalOrderCostCalculator();
 		totalOrderCostCalculator.calculateTotalOrderPrise(pizzas);
@@ -56,8 +56,8 @@ public class TotalOrderCostCalculatorTest {
 	@Test(expected = IllegalArgumentException.class)
 	public void testCalculateTotalOrderPrice_ThrowException_PizzaCountIsZero(){
 		Map<Pizza, Integer> pizzas = new HashMap<>();
-		pizzas.put(new Pizza(1, "Some name", 10.11, PizzaType.MEAT), 3);
-		pizzas.put(new Pizza(1, "Some name", 10.11, PizzaType.MEAT), 0);
+		pizzas.put(new Pizza(1L, "Some name", 10.11, PizzaType.MEAT), 3);
+		pizzas.put(new Pizza(1L, "Some name", 10.11, PizzaType.MEAT), 0);
 		
 		TotalOrderCostCalculator totalOrderCostCalculator = new TotalOrderCostCalculator();
 		totalOrderCostCalculator.calculateTotalOrderPrise(pizzas);
@@ -67,7 +67,7 @@ public class TotalOrderCostCalculatorTest {
 	@Test(expected = NullPointerException.class)
 	public void testCalculateTotalOrderPrice_ThrowException_IfPizzaIsNull(){
 		Map<Pizza, Integer> pizzas = new HashMap<>();
-		pizzas.put(new Pizza(1, "Some name", 10.11, PizzaType.MEAT), 3);
+		pizzas.put(new Pizza(1L, "Some name", 10.11, PizzaType.MEAT), 3);
 		pizzas.put(null, 3);
 		
 		TotalOrderCostCalculator totalOrderCostCalculator = new TotalOrderCostCalculator();
@@ -85,9 +85,9 @@ public class TotalOrderCostCalculatorTest {
 	@Test
 	public void testCalculateTotalOrderPrice_ThreeDifferentPizza(){
 		Map<Pizza, Integer> pizzas = new HashMap<>();
-		pizzas.put(new Pizza(1, "Some name", 45.60, PizzaType.MEAT), 1);
-		pizzas.put(new Pizza(2, "Some name", 55.60, PizzaType.MEAT), 1);
-		pizzas.put(new Pizza(3, "Some name", 35.60, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(1L, "Some name", 45.60, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(2L, "Some name", 55.60, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(3L, "Some name", 35.60, PizzaType.MEAT), 1);
 		double expectedPrice = 136.80;
 		
 		TotalOrderCostCalculator totalOrderCostCalculator = new TotalOrderCostCalculator();
@@ -99,10 +99,10 @@ public class TotalOrderCostCalculatorTest {
 	@Test
 	public void testCalculateTotalOrderPrice_FourDifferentPizza(){
 		Map<Pizza, Integer> pizzas = new HashMap<>();
-		pizzas.put(new Pizza(1, "Some name", 45.60, PizzaType.MEAT), 1);
-		pizzas.put(new Pizza(2, "Some name", 55.60, PizzaType.MEAT), 1);
-		pizzas.put(new Pizza(3, "Some name", 35.60, PizzaType.MEAT), 1);
-		pizzas.put(new Pizza(4, "Some name", 45.60, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(1L, "Some name", 45.60, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(2L, "Some name", 55.60, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(3L, "Some name", 35.60, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(4L, "Some name", 45.60, PizzaType.MEAT), 1);
 		double expectedPrice = 182.40;
 		
 		TotalOrderCostCalculator totalOrderCostCalculator = new TotalOrderCostCalculator();
@@ -114,11 +114,11 @@ public class TotalOrderCostCalculatorTest {
 	@Test
 	public void testCalculateTotalOrderPrice_FiveDifferentPizza(){
 		Map<Pizza, Integer> pizzas = new HashMap<>();
-		pizzas.put(new Pizza(1, "Some name", 30.00, PizzaType.MEAT), 1);
-		pizzas.put(new Pizza(2, "Some name", 60.00, PizzaType.MEAT), 1);
-		pizzas.put(new Pizza(3, "Some name", 30.00, PizzaType.MEAT), 1);
-		pizzas.put(new Pizza(4, "Some name", 45.00, PizzaType.MEAT), 1);
-		pizzas.put(new Pizza(4, "Some name", 45.00, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(1L, "Some name", 30.00, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(2L, "Some name", 60.00, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(3L, "Some name", 30.00, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(4L, "Some name", 45.00, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(4L, "Some name", 45.00, PizzaType.MEAT), 1);
 		//60 - max price
 		//60 - 30% = 42 
 		// 30+30+45+45+42 = 192
@@ -133,11 +133,11 @@ public class TotalOrderCostCalculatorTest {
 	@Test
 	public void testCalculateTotalOrderPrice_FiveDifferentPizzaTwoMaxPrice(){
 		Map<Pizza, Integer> pizzas = new HashMap<>();
-		pizzas.put(new Pizza(1, "Some name", 30.00, PizzaType.MEAT), 1);
-		pizzas.put(new Pizza(2, "Some name", 60.00, PizzaType.MEAT), 1);
-		pizzas.put(new Pizza(3, "Some name", 60.00, PizzaType.MEAT), 1);
-		pizzas.put(new Pizza(4, "Some name", 45.00, PizzaType.MEAT), 1);
-		pizzas.put(new Pizza(4, "Some name", 45.00, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(1L, "Some name", 30.00, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(2L, "Some name", 60.00, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(3L, "Some name", 60.00, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(4L, "Some name", 45.00, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(4L, "Some name", 45.00, PizzaType.MEAT), 1);
 		//60 - max price
 		//60 - 30% = 42 
 		// 30+60+45+45+42 = 222

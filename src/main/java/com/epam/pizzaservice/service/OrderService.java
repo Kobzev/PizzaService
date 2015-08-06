@@ -5,6 +5,6 @@ import com.epam.pizzaservice.domain.Order;
 
 public interface OrderService {
 
-	Order placeNewOrder(Customer customer, Integer... pizzasID);
+	Order placeNewOrder(Customer customer, Long... pizzasID);
 
 }

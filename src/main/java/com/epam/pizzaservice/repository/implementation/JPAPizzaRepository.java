@@ -1,4 +1,4 @@
-package com.epam.pizzaservice.repository;
+package com.epam.pizzaservice.repository.implementation;
 
 import java.util.List;
 
@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 import com.epam.pizzaservice.domain.Pizza;
+import com.epam.pizzaservice.repository.PizzaRepository;
 
 @Repository("pizzaRepository")
 public class JPAPizzaRepository implements PizzaRepository {
@@ -25,7 +26,7 @@ public class JPAPizzaRepository implements PizzaRepository {
 	}
 	
 	@Override
-	public Pizza getPizzaByID(Integer id) {
+	public Pizza getPizzaByID(Long id) {
 		TypedQuery<Pizza> query = em.createQuery("select p from Pizza p where p.id = :id", Pizza.class);
 		query.setParameter("id", id);
 		return query.getSingleResult();
@@ -33,7 +34,7 @@ public class JPAPizzaRepository implements PizzaRepository {
 
 	@Override
 	@Transactional
-	public Integer save(Pizza pizza) {
+	public Long save(Pizza pizza) {
 		if (pizza.getId() == null) {
 			em.persist(pizza);
 		}else {

@@ -1,7 +1,16 @@
 package com.epam.pizzaservice.domain;
 
+import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+//@Embeddable
+//@Entity
 public class Address {
-	private Integer id;
+	//@Id
+	//@GeneratedValue
+	private Long id;
 	private String country;
 	private String town;
 	private String street;
@@ -11,7 +20,7 @@ public class Address {
 	public Address() {
 	}
 
-	public Address(Integer id, String country, String town, String street, String building, String flat) {
+	public Address(Long id, String country, String town, String street, String building, String flat) {
 		this.id = id;
 		this.country = country;
 		this.town = town;
@@ -20,11 +29,11 @@ public class Address {
 		this.flat = flat;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

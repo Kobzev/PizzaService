@@ -27,7 +27,7 @@ public class PizzaApp {
         
         //OrderService orderService = new SimpleOrderService(orderRepository, pizzaRepository);
         OrderService orderService = (OrderService)context.getBean("orderService");
-        order = orderService.placeNewOrder(customer, 1, 2, 3);
+        order = orderService.placeNewOrder(customer, 1L, 2L, 3L);
         
         System.out.println(order);
     }

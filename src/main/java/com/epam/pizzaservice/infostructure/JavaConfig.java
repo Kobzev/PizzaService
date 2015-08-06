@@ -3,8 +3,8 @@ package com.epam.pizzaservice.infostructure;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.epam.pizzaservice.repository.TestOrderRepository;
-import com.epam.pizzaservice.repository.TestPizzaRepository;
+import com.epam.pizzaservice.repository.implementation.TestOrderRepository;
+import com.epam.pizzaservice.repository.implementation.TestPizzaRepository;
 import com.epam.pizzaservice.service.SimpleOrderService;
 
 public class JavaConfig implements Config{

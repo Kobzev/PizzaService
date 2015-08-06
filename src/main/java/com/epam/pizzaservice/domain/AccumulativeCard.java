@@ -1,8 +1,19 @@
 package com.epam.pizzaservice.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+//@Entity
 public class AccumulativeCard {
+	//@Id
+	//@GeneratedValue
 	private Integer id;
+	//@Embedded
 	private Address address;
+	//@Column(name="acc_sum")
 	private Integer accumulativeSum;
 	
 	public AccumulativeCard() {

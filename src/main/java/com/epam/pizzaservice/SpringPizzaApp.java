@@ -5,7 +5,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.epam.pizzaservice.domain.Order;
 import com.epam.pizzaservice.domain.Pizza;
-import com.epam.pizzaservice.domain.PizzaType;
 import com.epam.pizzaservice.repository.PizzaRepository;
 import com.epam.pizzaservice.service.OrderService;
 
@@ -26,10 +25,10 @@ public class SpringPizzaApp {
         Object service = appContext.getBean(OrderService.class);
         
         OrderService orderService = (OrderService)service;
-        Order order = orderService.placeNewOrder(null, 1, 2, 3);
+        Order order = orderService.placeNewOrder(null, 1L, 2L, 3L);
         System.out.println(order);
         
-        order = orderService.placeNewOrder(null, 1, 2, 3);
+        order = orderService.placeNewOrder(null, 1L, 2L, 3L);
         System.out.println(order);
 
         System.out.println(appContext.getBean("order"));
@@ -43,7 +42,7 @@ public class SpringPizzaApp {
         System.out.println(config.toString());
         
         //pizzaRepository.save(new Pizza(null, "Vegetarian", 71.30, PizzaType.VEGETERIAN));
-        System.out.println(pizzaRepository.getPizzaByID(1));
+        System.out.println(pizzaRepository.getPizzaByID(1L));
 
         appContext.close();
         repositoryContext.close();

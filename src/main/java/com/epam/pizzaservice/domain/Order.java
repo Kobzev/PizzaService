@@ -3,14 +3,21 @@ package com.epam.pizzaservice.domain;
 import java.util.List;
 import java.util.Map;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component(value = "order")
 @Scope(value="prototype")
+//@Entity
 public class Order {
 	static int count;
 	
+	//@Id
+	//@GeneratedValue
 	private Integer id;
 	private String name;
 	private List<Pizza> list;

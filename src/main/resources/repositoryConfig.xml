@@ -12,14 +12,14 @@
 
 	<bean id="propertyConfigure"
 			class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-	<property name="location" value="classpath:/jdbs.properties"></property>		
+	<property name="location" value="/jdbs.properties"></property>		
 	</bean>
 
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver"/> <!-- ${driver} -->
-		<property name="url" value="jdbc:mysql://localhost:3306/pizzadeliveryservice"/>
-		<property name="username" value="root"/>
-		<property name="password" value="root"/>
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${driver}"/>
+		<property name="url" value="${url}"/>
+		<property name="username" value="${user}"/>
+		<property name="password" value="${password}"/>
 	</bean>
 	
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">

@@ -10,16 +10,16 @@ import javax.persistence.Id;
 public class Pizza {
 	@Id
 	@GeneratedValue
-	private Integer id;
+	private Long id;
 	private String name;
 	private Double price;
 	@Enumerated(EnumType.STRING)
 	private PizzaType type;
 	
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -40,7 +40,7 @@ public class Pizza {
 	public void setType(PizzaType type) {
 		this.type = type;
 	}
-	public Pizza(Integer id, String name, Double price, PizzaType type) {
+	public Pizza(Long id, String name, Double price, PizzaType type) {
 		super();
 		this.id = id;
 		this.name = name;
