@@ -3,16 +3,21 @@ package com.epam.pizzaservice.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
-//@Entity
+@Entity
 public class Customer {
-	//@Id
-	//@GeneratedValue
-	private Integer id;
+	@Id
+	@GeneratedValue
+	private Long id;
 	private String name;
+	@OneToOne
+	@JoinColumn(name="id_acc_card", nullable=true)
 	private AccumulativeCard accumulativeCard;
 	
-	public Customer(Integer id, String name) {
+	public Customer(Long id, String name) {
 		this.id = id;
 		this.name = name;
 	}
@@ -20,10 +25,10 @@ public class Customer {
 	public Customer() {
 	}
 	
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getName() {

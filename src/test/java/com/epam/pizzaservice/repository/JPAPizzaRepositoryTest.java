@@ -15,7 +15,7 @@ public class JPAPizzaRepositoryTest extends ITRepositoryTestsTemplete{
 	private PizzaRepository pizzaRepository;
 	
 	@Test
-	public void testSomeMethod(){	
+	public void PizzaRepository_testSaveMethod_NormalWork(){	
 		Pizza pizza = new Pizza();
 		pizza.setName("seas");
 		pizza.setPrice(48.9);

@@ -35,6 +35,8 @@ public class JPAPizzaRepository implements PizzaRepository {
 	@Override
 	@Transactional
 	public Long save(Pizza pizza) {
+		if (pizza == null) return null;
+		
 		if (pizza.getId() == null) {
 			em.persist(pizza);
 		}else {

@@ -5,31 +5,34 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
-//@Entity
+@Entity
 public class AccumulativeCard {
-	//@Id
-	//@GeneratedValue
-	private Integer id;
-	//@Embedded
+	@Id
+	@GeneratedValue
+	private Long id;
+	@ManyToOne
+	@JoinColumn(name="id_address", nullable=true)
 	private Address address;
-	//@Column(name="acc_sum")
+	@Column(name="acc_sum")
 	private Integer accumulativeSum;
 	
 	public AccumulativeCard() {
 	}
 
-	public AccumulativeCard(Integer id, Address address, Integer accumulativeSum) {
+	public AccumulativeCard(Long id, Address address, Integer accumulativeSum) {
 		this.id = id;
 		this.address = address;
 		this.accumulativeSum = accumulativeSum;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

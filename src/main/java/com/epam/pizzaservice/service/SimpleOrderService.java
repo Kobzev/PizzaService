@@ -33,8 +33,8 @@ public class SimpleOrderService implements OrderService {
             pizzas.add(pizzaRepository.getPizzaByID(id));  // get Pizza from predifined in-memory list
         }
         Order newOrder = getNewOrder();
-		newOrder.setCustomer(customer);
-		newOrder.setList(pizzas);
+		//newOrder.setCustomer(customer);
+		//newOrder.setList(pizzas);
         
         orderRepository.saveOrder(newOrder);  // set Order Id and save Order to in-memory list
         return newOrder;

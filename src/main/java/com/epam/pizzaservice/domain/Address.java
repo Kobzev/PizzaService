@@ -5,11 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-//@Embeddable
-//@Entity
+@Entity
 public class Address {
-	//@Id
-	//@GeneratedValue
+	@Id
+	@GeneratedValue
 	private Long id;
 	private String country;
 	private String town;

@@ -6,43 +6,39 @@ import java.util.Map;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component(value = "order")
 @Scope(value="prototype")
-//@Entity
 public class Order {
-	static int count;
-	
-	//@Id
-	//@GeneratedValue
-	private Integer id;
-	private String name;
+	static long count;
 	private List<Pizza> list;
+	
+	private Long id;
+	private String name;
+
 	private Customer customer;
 	
-	Map<Pizza, Integer> pizzaMap;
+	private Map<Pizza, Integer> pizzaMap;
 	
 	public Order() {
 		id = count++;
 		name = id.toString();
 	}
 	
-	public Order(Customer customer, List<Pizza> list) {
-		this.list = list;
-		this.customer = customer;
-	}
-	public Order(Integer id, List<Pizza> list, Customer customer) {
-		this.id = id;
-		this.list = list;
-		this.customer = customer;
+	public Order(OrderDTO order) {
+		this.id = order.getId();
+		this.customer = order.getCustomer();
+		this.pizzaMap = order.getPizzaMap();
 	}
 
 	@Override
 	public String toString() {
-		return "Order [id=" + id + ", name=" + name + ", list=" + list + ", customer=" + customer
+		return "Order [id=" + id + ", name=" + name + ",  customer=" //+ customer
 				+ "]";
 	}
 
@@ -52,10 +48,10 @@ public class Order {
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public List<Pizza> getList() {
@@ -76,5 +72,18 @@ public class Order {
 	public void destroy(){
 		System.out.println("destroy");
 	}
+	
+	public Order(Customer customer, List<Pizza> list) {
+		this.list = list;
+		this.customer = customer;
+	}
+	public Order(Long id, List<Pizza> list, Customer customer) {
+		this.id = id;
+		this.list = list;
+		this.customer = customer;
+	}
 
+	public String getName() {
+		return name;
+	}
 }

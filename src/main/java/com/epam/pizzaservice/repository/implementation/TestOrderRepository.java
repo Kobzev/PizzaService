@@ -9,7 +9,6 @@ import com.epam.pizzaservice.domain.Order;
 import com.epam.pizzaservice.infostructure.Benchmark;
 import com.epam.pizzaservice.repository.OrderRepository;
 
-@Repository
 public class TestOrderRepository implements OrderRepository {
 	private static List<Order> staticListOfOrders;
 
@@ -22,5 +21,17 @@ public class TestOrderRepository implements OrderRepository {
 	public void saveOrder(Order newOrder) {
 		//newOrder.setId(staticListOfOrders.size()+1);
 		staticListOfOrders.add(newOrder);		
+	}
+
+	@Override
+	public Order getOrderById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Long save(Order order) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
