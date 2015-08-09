@@ -1,4 +1,4 @@
-package com.epam.pizzaservice.service;
+package com.epam.pizzaservice.service.implementation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,8 +12,10 @@ import com.epam.pizzaservice.domain.Customer;
 import com.epam.pizzaservice.domain.Order;
 import com.epam.pizzaservice.domain.Pizza;
 import com.epam.pizzaservice.infostructure.Benchmark;
+import com.epam.pizzaservice.repository.CustomerRepository;
 import com.epam.pizzaservice.repository.OrderRepository;
 import com.epam.pizzaservice.repository.PizzaRepository;
+import com.epam.pizzaservice.service.OrderService;
 
 @Service
 public class SimpleOrderService implements OrderService {
@@ -21,8 +23,12 @@ public class SimpleOrderService implements OrderService {
 	//private ObjectFactory objectFactory = ObjectFactory.getInstance();
 
 	//private ApplicationContext appContext;
+	@Autowired
 	private OrderRepository orderRepository;
-	private PizzaRepository pizzaRepository;	
+	@Autowired
+	private PizzaRepository pizzaRepository;
+	@Autowired
+	private CustomerRepository customerRepository;
 	
 	@Override
 	@Benchmark
@@ -33,10 +39,10 @@ public class SimpleOrderService implements OrderService {
             pizzas.add(pizzaRepository.getPizzaByID(id));  // get Pizza from predifined in-memory list
         }
         Order newOrder = getNewOrder();
-		//newOrder.setCustomer(customer);
+		newOrder.setCustomer(customerRepository.getCustomerById(1L));
 		//newOrder.setList(pizzas);
         
-        orderRepository.saveOrder(newOrder);  // set Order Id and save Order to in-memory list
+        orderRepository.save(newOrder);  // set Order Id and save Order to in-memory list
         return newOrder;
     }
 

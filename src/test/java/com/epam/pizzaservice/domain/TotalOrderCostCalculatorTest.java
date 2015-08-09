@@ -118,7 +118,7 @@ public class TotalOrderCostCalculatorTest {
 		pizzas.put(new Pizza(2L, "Some name", 60.00, PizzaType.MEAT), 1);
 		pizzas.put(new Pizza(3L, "Some name", 30.00, PizzaType.MEAT), 1);
 		pizzas.put(new Pizza(4L, "Some name", 45.00, PizzaType.MEAT), 1);
-		pizzas.put(new Pizza(4L, "Some name", 45.00, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(5L, "Some name", 45.00, PizzaType.MEAT), 1);
 		//60 - max price
 		//60 - 30% = 42 
 		// 30+30+45+45+42 = 192
@@ -137,7 +137,7 @@ public class TotalOrderCostCalculatorTest {
 		pizzas.put(new Pizza(2L, "Some name", 60.00, PizzaType.MEAT), 1);
 		pizzas.put(new Pizza(3L, "Some name", 60.00, PizzaType.MEAT), 1);
 		pizzas.put(new Pizza(4L, "Some name", 45.00, PizzaType.MEAT), 1);
-		pizzas.put(new Pizza(4L, "Some name", 45.00, PizzaType.MEAT), 1);
+		pizzas.put(new Pizza(5L, "Some name", 45.00, PizzaType.MEAT), 1);
 		//60 - max price
 		//60 - 30% = 42 
 		// 30+60+45+45+42 = 222

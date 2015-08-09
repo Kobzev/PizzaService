@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.epam.pizzaservice.repository.implementation.TestOrderRepository;
 import com.epam.pizzaservice.repository.implementation.TestPizzaRepository;
-import com.epam.pizzaservice.service.SimpleOrderService;
+import com.epam.pizzaservice.service.implementation.SimpleOrderService;
 
 public class JavaConfig implements Config{
 	private Map<String,Class<?>> map = new HashMap<>();

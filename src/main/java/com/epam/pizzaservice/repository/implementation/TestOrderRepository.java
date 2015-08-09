@@ -3,8 +3,6 @@ package com.epam.pizzaservice.repository.implementation;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
-
 import com.epam.pizzaservice.domain.Order;
 import com.epam.pizzaservice.infostructure.Benchmark;
 import com.epam.pizzaservice.repository.OrderRepository;

@@ -8,7 +8,6 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 import com.epam.pizzaservice.domain.Order;
-import com.epam.pizzaservice.domain.OrderDTO;
 import com.epam.pizzaservice.repository.OrderRepository;
 
 @Repository("orderRepository")
@@ -24,10 +23,10 @@ public class JPAOrderRepository implements OrderRepository {
 
 	@Override
 	public Order getOrderById(Long id) {
-		TypedQuery<OrderDTO> query = em.createQuery("select p from OrderDTO p where p.id = :id", OrderDTO.class);
+		TypedQuery<Order> query = em.createQuery("select p from Order p where p.id = :id", Order.class);
 		query.setParameter("id", id);
-		Order order = new Order(query.getSingleResult());
-		return order;
+		//Order order = new Order();
+		return query.getSingleResult();
 	}
 
 	@Override
@@ -36,14 +35,14 @@ public class JPAOrderRepository implements OrderRepository {
 		if (order == null)
 			return null;
 		
-		OrderDTO orderDTO = new OrderDTO(order);
+		//OrderDTO orderDTO = new OrderDTO(order);
 
-		if (orderDTO.getId() == null) {
-			em.persist(orderDTO);
+		if (order.getId() == null) {
+			em.persist(order);
 		} else {
-			em.merge(orderDTO);
+			em.merge(order);
 		}
-		order.setId(orderDTO.getId());
+		//order.setId(orderDTO.getId());
 		return order.getId();
 		//return 1L;
 	}

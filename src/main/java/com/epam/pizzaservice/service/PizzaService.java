@@ -1,7 +1,10 @@
 package com.epam.pizzaservice.service;
 
+import java.util.List;
+
 import com.epam.pizzaservice.domain.Pizza;
 
 public interface PizzaService {
-	Pizza getPizzaByID(Integer id);
+	Pizza getPizzaByID(Long id);
+	List<Pizza> getAllPizzas();
 }
