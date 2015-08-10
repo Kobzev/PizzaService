@@ -25,4 +25,14 @@ public class PizzaServiceImplementation implements PizzaService{
 		return pizzaRepository.getAllPizzas();
 	}
 
+	@Override
+	public Long save(Pizza pizza) {
+		return pizzaRepository.save(pizza);
+	}
+
+	@Override
+	public Long update(Pizza pizza) {
+		return pizzaRepository.save(pizza);
+	}
+
 }
