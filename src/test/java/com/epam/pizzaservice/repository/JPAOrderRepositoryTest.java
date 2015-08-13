@@ -51,7 +51,7 @@ public class JPAOrderRepositoryTest extends ITRepositoryTestsTemplete{
 	@Ignore
 	@Test
 	public void OrderRepository_testGetOrderById_OrderWithMap_NormalWork(){
-		Order order = orderRepository.getOrderById(3L);
+		Order order = orderRepository.getOrderById(18L);
 		
 		Integer size = null;
 		try {
