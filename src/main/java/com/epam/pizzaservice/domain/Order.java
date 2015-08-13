@@ -7,6 +7,7 @@ import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -15,7 +16,9 @@ import javax.persistence.MapKeyJoinColumn;
 import javax.persistence.Table;
 
 import com.epam.pizzaservice.domain.Pizza;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+import org.hibernate.annotations.Fetch;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -35,7 +38,7 @@ public class Order {
 	@JoinColumn(name="id_customer", nullable=true)
 	private Customer customer;
 	
-	@ElementCollection
+	@ElementCollection(fetch=FetchType.EAGER)
 	@CollectionTable(name="order_pizza",
 			joinColumns=@JoinColumn(name="id_order"))
 	@MapKeyJoinColumn(name="id_pizza")
@@ -96,5 +99,9 @@ public class Order {
 
 	public String getName() {
 		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }

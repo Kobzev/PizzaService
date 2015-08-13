@@ -76,6 +76,16 @@ public class SimpleOrderService implements OrderService {
 		System.out.println("pizza test method");
 	}
 
+	@Override
+	public Order getOrderByID(Long id) {
+		return orderRepository.getOrderById(id);
+	}
+
+	@Override
+	public Long save(Order order) {
+		return orderRepository.save(order);
+	}
+
 	//@Override
 	//public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 	//	this.appContext = applicationContext;
