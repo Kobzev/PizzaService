@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<form action="/PizzaService/jsp/pizza/create" method="get">
 	<table border=1>
 		<thead>
 			<tr>
@@ -28,10 +29,12 @@
 					<td><c:out value="${pizza.name}" /></td>
 					<td><c:out value="${pizza.price}" /></td>
 					<td><c:out value="${pizza.type}" /></td>
+					<td><a href="/PizzaService/jsp/pizza/edit?id=<c:out value="${pizza.id}"/>"><c:out value="edit"/></td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
-	<button><a href="/PizzaService/jsp/pizza/create"><c:out value="create new pizza"/></a></button>
+	<button type="submit"><c:out value="create new pizza"/></button>
+</form>
 </body>
 </html>

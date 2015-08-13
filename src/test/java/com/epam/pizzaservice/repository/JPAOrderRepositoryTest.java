@@ -2,6 +2,7 @@ package com.epam.pizzaservice.repository;
 
 import static org.junit.Assert.assertNotNull;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -13,6 +14,7 @@ public class JPAOrderRepositoryTest extends ITRepositoryTestsTemplete{
 	@Autowired
 	private OrderRepository orderRepository;
 	
+	@Ignore
 	@Test
 	public void OrderRepository_testSaveMethod_NormalWork(){
 		Order order = new Order();
@@ -24,6 +26,7 @@ public class JPAOrderRepositoryTest extends ITRepositoryTestsTemplete{
 		
 	}
 	
+	@Ignore
 	@Test
 	public void OrderRepository_testGetOrderById_NormalWork(){
 		Order order = orderRepository.getOrderById(1L);
@@ -34,6 +37,7 @@ public class JPAOrderRepositoryTest extends ITRepositoryTestsTemplete{
 		
 	}
 	
+	@Ignore
 	@Test
 	public void OrderRepository_testGetOrderById_OrderWithCustomer_NormalWork(){
 		Order order = orderRepository.getOrderById(2L);
@@ -44,6 +48,7 @@ public class JPAOrderRepositoryTest extends ITRepositoryTestsTemplete{
 		
 	}
 	
+	@Ignore
 	@Test
 	public void OrderRepository_testGetOrderById_OrderWithMap_NormalWork(){
 		Order order = orderRepository.getOrderById(3L);

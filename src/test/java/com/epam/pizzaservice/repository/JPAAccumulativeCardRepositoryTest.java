@@ -2,6 +2,7 @@ package com.epam.pizzaservice.repository;
 
 import static org.junit.Assert.assertNotNull;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -13,6 +14,7 @@ public class JPAAccumulativeCardRepositoryTest extends ITRepositoryTestsTemplete
 	@Autowired
 	private AccumulativeCardRepository accumulativeCardRepository;
 	
+	@Ignore
 	@Test
 	public void AccumulativeCardRepository_testSaveMethod_NormalWork(){
 		AccumulativeCard accumulativeCard = new AccumulativeCard();
@@ -24,6 +26,7 @@ public class JPAAccumulativeCardRepositoryTest extends ITRepositoryTestsTemplete
 		
 	}
 	
+	@Ignore
 	@Test
 	public void AccumulativeCardRepository_testGetAccumulativeCardById_NormalWork(){
 		AccumulativeCard accumulativeCard = accumulativeCardRepository.getAccumulativeCardById(1L);
@@ -34,6 +37,7 @@ public class JPAAccumulativeCardRepositoryTest extends ITRepositoryTestsTemplete
 		
 	}
 	
+	@Ignore
 	@Test
 	public void AccumulativeCardRepository_testGetAccumulativeCardById_CardWithAddress_NormalWork(){
 		AccumulativeCard accumulativeCard = accumulativeCardRepository.getAccumulativeCardById(2L);

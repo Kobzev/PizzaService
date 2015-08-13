@@ -2,6 +2,7 @@ package com.epam.pizzaservice.repository;
 
 import static org.junit.Assert.*;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -14,6 +15,7 @@ public class JPAPizzaRepositoryTest extends ITRepositoryTestsTemplete{
 	@Autowired
 	private PizzaRepository pizzaRepository;
 	
+	@Ignore
 	@Test
 	public void PizzaRepository_testSaveMethod_NormalWork(){	
 		Pizza pizza = new Pizza();

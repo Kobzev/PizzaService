@@ -2,6 +2,7 @@ package com.epam.pizzaservice.repository;
 
 import static org.junit.Assert.assertNotNull;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -13,6 +14,7 @@ public class JPACustomerRepositoryTest extends ITRepositoryTestsTemplete{
 	@Autowired
 	private CustomerRepository customerRepository;
 	
+	@Ignore
 	@Test
 	public void CustomerRepository_testSaveMethod_NormalWork(){
 		Customer customer = new Customer();
@@ -24,6 +26,7 @@ public class JPACustomerRepositoryTest extends ITRepositoryTestsTemplete{
 		
 	}
 	
+	@Ignore
 	@Test
 	public void CustomerRepository_testGetCustomerById_NormalWork(){
 		Customer customer = customerRepository.getCustomerById(1L);
@@ -34,6 +37,7 @@ public class JPACustomerRepositoryTest extends ITRepositoryTestsTemplete{
 		
 	}
 	
+	@Ignore
 	@Test
 	public void CustomerRepository_testGetCustomerById_CustomerWithCard_NormalWork(){
 		Customer customer = customerRepository.getCustomerById(2L);

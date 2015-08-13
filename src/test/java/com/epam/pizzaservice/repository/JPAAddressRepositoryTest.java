@@ -2,6 +2,7 @@ package com.epam.pizzaservice.repository;
 
 import static org.junit.Assert.assertNotNull;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -13,6 +14,7 @@ public class JPAAddressRepositoryTest extends ITRepositoryTestsTemplete{
 	@Autowired
 	private AddressRepository addressRepository;
 	
+	@Ignore
 	@Test
 	public void AddressRepository_testSaveMethod_NormalWork(){
 		Address address = new Address();
@@ -24,6 +26,7 @@ public class JPAAddressRepositoryTest extends ITRepositoryTestsTemplete{
 		
 	}
 	
+	@Ignore
 	@Test
 	public void AddressRepository_testGetAddressById_NormalWork(){
 		Address address = addressRepository.getAddressById(1L);
