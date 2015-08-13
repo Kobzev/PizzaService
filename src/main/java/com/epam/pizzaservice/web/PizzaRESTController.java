@@ -48,7 +48,7 @@ public class PizzaRESTController extends AbstractBinder{
 		
 		HttpHeaders headers = new HttpHeaders();
 		headers.setLocation(
-				builder.path("/rest/pizzas/{id}")
+				builder.path("/pizzas/{id}")
 				.buildAndExpand(pizza.getId()).toUri());
 		
 		return new ResponseEntity<>(headers, HttpStatus.CREATED);
@@ -74,7 +74,7 @@ public class PizzaRESTController extends AbstractBinder{
 		
 		HttpHeaders headers = new HttpHeaders();
 		headers.setLocation(
-				builder.path("/rest/orders/{id}")
+				builder.path("/orders/{id}")
 				.buildAndExpand(order.getId()).toUri());
 		
 		return new ResponseEntity<>(headers, HttpStatus.CREATED);
