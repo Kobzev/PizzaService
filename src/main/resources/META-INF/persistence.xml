@@ -9,7 +9,7 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
-            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <!-- <property name="hibernate.hbm2ddl.auto" value="update" /> If this tag in Production = someone kill me -->
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="true" />      
         </properties>        
