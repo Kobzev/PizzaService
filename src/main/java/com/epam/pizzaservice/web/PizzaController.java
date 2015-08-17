@@ -1,5 +1,8 @@
 package com.epam.pizzaservice.web;
 
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -28,6 +31,13 @@ public class PizzaController extends AbstractBinder{
 	@RequestMapping(value="/show", method=RequestMethod.GET)
 	public String viewPizzas(Model model){
 		model.addAttribute("pizzas", pizzaService.getAllPizzas());
+		
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		
+		model.addAttribute("user", authentication.getName().toString());
+		
+		model.addAttribute("user_roles", authentication.getAuthorities().toString());
+		
 		return "show";
 	}
 	
@@ -48,6 +58,7 @@ public class PizzaController extends AbstractBinder{
 		return "redirect:show";
 	}
 	
+	@Secured("ROLE_ADMIN")
 	@RequestMapping(value="/edit", method=RequestMethod.GET)
 	public String editPizza(@RequestParam("id") Pizza pizza, Model model){
 		model.addAttribute("pizza", pizza);

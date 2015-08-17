@@ -11,6 +11,7 @@
 
 	<properties>
 		<org.springframework.version>4.2.0.RELEASE</org.springframework.version>
+		<org.springframework.security>4.0.2.RELEASE</org.springframework.security>
 		<spring.test>2.5</spring.test>
 		<persistance.api>2.1.0</persistance.api>
 		<junit>4.12</junit>
@@ -64,6 +65,24 @@
 			<artifactId>spring-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<!-- Security -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${org.springframework.security}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${org.springframework.security}</version>
+		</dependency>		
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${org.springframework.security}</version>
+		</dependency>
+		
 
 		<!-- JPA -->
 		<dependency>

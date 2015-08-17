@@ -80,6 +80,23 @@ public class PizzaRESTController extends AbstractBinder{
 		return new ResponseEntity<>(headers, HttpStatus.CREATED);
 	}
 	
+	@RequestMapping(
+			method = RequestMethod.POST,
+			value="/orders/addfull", 
+			headers = "content-type=application/json"
+			)
+	public ResponseEntity<Order> createNewFullOrder(@RequestBody Order order, UriComponentsBuilder builder){
+		System.out.println(order);
+		orderService.save(order);
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.setLocation(
+				builder.path("/orders/{id}")
+				.buildAndExpand(order.getId()).toUri());
+		
+		return new ResponseEntity<>(headers, HttpStatus.CREATED);
+	}
+	
 	@RequestMapping(method = RequestMethod.GET, value = "test")
 	public ResponseEntity<OrderDTO> getTest2(){
 		OrderDTO orderDTO = new OrderDTO();
