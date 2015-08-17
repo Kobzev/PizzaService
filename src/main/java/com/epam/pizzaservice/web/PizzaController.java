@@ -41,6 +41,7 @@ public class PizzaController extends AbstractBinder{
 		return "show";
 	}
 	
+	@Secured("ROLE_ADMIN")
 	@RequestMapping(value="/create", method=RequestMethod.GET)
 	public String createPizza(Model model){
 		model.addAttribute("pizza", new Pizza());
@@ -61,6 +62,7 @@ public class PizzaController extends AbstractBinder{
 	@Secured("ROLE_ADMIN")
 	@RequestMapping(value="/edit", method=RequestMethod.GET)
 	public String editPizza(@RequestParam("id") Pizza pizza, Model model){
+		System.out.println("pizza id =" + pizza.getId());
 		model.addAttribute("pizza", pizza);
 		return "editpizza";
 	}
@@ -68,6 +70,7 @@ public class PizzaController extends AbstractBinder{
 	@RequestMapping(value="/edit", method=RequestMethod.POST)
 	public String savePizza(@ModelAttribute Pizza pizza){
 		//if(null==null)throw new PizzaNotFoundException("Pizza not found");
+		System.out.println("pizza id =" + pizza.getId());
 		pizzaService.update(pizza);
 		return "redirect:show";
 	}

@@ -26,6 +26,7 @@ abstract class AbstractBinder {
 	
 	private Pizza getPizzaById(Long id){
 		if (id <= 0) throw new IllegalArgumentException("ID<=0");
+		System.out.println("pizza id =" + id);
 		Pizza pizza = pizzaService.getPizzaByID(id);
 		if (pizza == null) throw new PizzaNotFoundException("Pizza id = " + id + " not found");
 		return pizza;

@@ -28,11 +28,11 @@
 			</tr>
 			<tr>
 				<th></th>
-				<th><button type="submit" value="create"/></th>
+				<th><button type="submit" value="create"/><sec:csrfInput /></th>
 			</tr>
 		</table>
+		<sec:csrfInput />
 	</form>
-	<sec:csrfInput />
 
 </body>
 </html>
