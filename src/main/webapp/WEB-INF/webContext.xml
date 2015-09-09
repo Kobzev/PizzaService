@@ -24,7 +24,7 @@
 		</property>
 	</bean> -->
 	
-	<bean id="" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+	<!-- <bean id="" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="exceptionMappings">
 			<map>
 				<entry key="SQLException" value="dataBaseEror"/>
@@ -33,7 +33,7 @@
 		
 		<property name="defaultErrorView" value="error"></property>
 		<property name="exceptionAttribute" value="ex"/>
-	</bean>
+	</bean> -->
 	
 	<bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
         <property name="prefixJson" value="false"/>
